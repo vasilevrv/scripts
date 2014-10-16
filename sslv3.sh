@@ -17,7 +17,7 @@ if [[ "$SSLSERV" == "apache2" ]]; then
      fi
 
 elif [[ "$SSLSERV" == "httpd" ]]; then
-     sed -i 's|SSLProtocol All -SSLv2|SSLProtocol All -SSLv2 -SSLv3|g' /etc/httpd/conf.d/ssl.conf
+     sed -i 's|SSLProtocol all -SSLv2|SSLProtocol All -SSLv2 -SSLv3|g' /etc/httpd/conf.d/ssl.conf
      echo 'Fix /etc/httpd/conf.d/ssl.conf .. Done!'
      apachectl -t 2>&1 > /dev/null
      if [ $? == 0 ]; then
